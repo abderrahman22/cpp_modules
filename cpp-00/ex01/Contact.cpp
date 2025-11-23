@@ -6,7 +6,7 @@
 /*   By: abchaman <abchaman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 18:09:38 by abchaman          #+#    #+#             */
-/*   Updated: 2025/11/20 22:54:43 by abchaman         ###   ########.fr       */
+/*   Updated: 2025/11/23 16:58:22 by abchaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void Contact::setPhoneNumber(std::string number)
 {
 	phone_number = number;
 }
-void Contact::setDarksetSecret(std::string secret)
+void Contact::setDarkestSecret(std::string secret)
 {
 	darkest_secret = secret;
 }
@@ -55,15 +55,7 @@ std::string Contact::getPhoneNumber()
 	return phone_number;
 }
 
-std::string Contact::getDarksetSecret()
+std::string Contact::getDarkestSecret()
 {
 	return darkest_secret;
-}
-void Contact::display()
-{
-	std::cout << Contact::first_name << std::endl;
-	std::cout << Contact::last_name << std::endl;
-	std::cout << Contact::nickname << std::endl;
-	std::cout << Contact::phone_number << std::endl;
-	std::cout << Contact::darkest_secret << std::endl;
 }

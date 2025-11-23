@@ -6,7 +6,7 @@
 /*   By: abchaman <abchaman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 21:09:24 by abchaman          #+#    #+#             */
-/*   Updated: 2025/11/20 21:39:59 by abchaman         ###   ########.fr       */
+/*   Updated: 2025/11/23 19:57:28 by abchaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,24 @@
 int main()
 {
 	std::string input;
-	std::cout << "Enter a command: ADD or SEARCH or EXIT";
-	std::cin >> input;
+	PhoneBook phone;
 
 	while (1)
 	{
+		std::cout << "Enter a command: ADD or SEARCH or EXIT" << std::endl;
+		std::getline(std::cin, input);
 		if (input == "ADD")
 		{
-			/* code */
+			phone.add_to_mi7fada();
 		}
 		else if (input == "SEARCH")
 		{
-			/* code */
+			phone.search_from_mi7fada();
 		}
 		else if (input == "EXIT")
 		{
-			/* code */
+			std::cout << "GOOD BYE!" << std::endl;
+			break;
 		}
 	}
-	// std::cout << input << std::endl;
 }
