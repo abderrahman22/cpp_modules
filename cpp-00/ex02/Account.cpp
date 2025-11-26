@@ -6,7 +6,7 @@
 /*   By: abchaman <abchaman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 15:49:16 by abchaman          #+#    #+#             */
-/*   Updated: 2025/11/25 19:21:04 by abchaman         ###   ########.fr       */
+/*   Updated: 2025/11/26 16:54:04 by abchaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,19 @@ Account::Account(int initial_deposit)
 	_nbAccounts++;
 	_totalAmount += initial_deposit;
 	_displayTimestamp();
-	std::cout << " index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
+	std::cout
+		<< "index:" << _accountIndex << ";" <<
+		"amount:" << _amount << ";" <<
+		"created" << std::endl;
 }
 
 Account::~Account()
 {
 	_displayTimestamp();
-	std::cout << " index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
+	std::cout
+		<< "index:" << _accountIndex << ";" <<
+		"amount:" << _amount << ";" <<
+		"closed" << std::endl;
 	_nbAccounts--;
 	_totalAmount-= _amount;
 }
