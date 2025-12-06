@@ -8,8 +8,8 @@ class HumanB
 	private:
 		std::string name;
 	public:
-		HumanB(/* args */);
-		~HumanB();
+		void attack();
+		void setWeapon();
 };
 
 #endif

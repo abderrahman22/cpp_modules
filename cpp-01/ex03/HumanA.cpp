@@ -6,8 +6,19 @@
 /*   By: abchaman <abchaman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 18:09:22 by abchaman          #+#    #+#             */
-/*   Updated: 2025/12/01 18:09:37 by abchaman         ###   ########.fr       */
+/*   Updated: 2025/12/03 17:15:14 by abchaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
+
+void HumanA::attack()
+{
+	//later
+	std::cout << "NAME";
+}
+
+void HumanA::setWeapon()
+{
+	
+}

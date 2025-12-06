@@ -7,9 +7,10 @@ class HumanA
 {
 	private:
 		std::string name;
+
 	public:
-		HumanA(/* args */);
-		~HumanA();
+		void attack();
+		void setWeapon();
 };
 
 #endif
