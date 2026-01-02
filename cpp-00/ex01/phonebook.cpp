@@ -6,7 +6,7 @@
 /*   By: abchaman <abchaman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 16:52:09 by abchaman          #+#    #+#             */
-/*   Updated: 2025/11/24 03:04:05 by abchaman         ###   ########.fr       */
+/*   Updated: 2025/12/31 14:33:36 by abchaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void PhoneBook::search_from_mi7fada()
 	display_all_contacts();
 	std::cout << "enter a specific index from 0 to 7 :" << std::endl;
 	std::getline(std::cin, index);
-	i = atoi(index.c_str());
+	i = atoi(index.c_str());//?
 	if (i >= 0 && i < total_contact)
 		display_contact(i);
 	else
