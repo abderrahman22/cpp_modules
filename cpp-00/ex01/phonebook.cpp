@@ -6,7 +6,7 @@
 /*   By: abchaman <abchaman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 16:52:09 by abchaman          #+#    #+#             */
-/*   Updated: 2025/12/31 14:33:36 by abchaman         ###   ########.fr       */
+/*   Updated: 2026/01/05 20:21:48 by abchaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,32 +20,90 @@ void PhoneBook::add_to_mi7fada()
 	Contact jdid;
 	std::string input;
 
-	std::cout << "enter the first name : ";
-	std::getline(std::cin, input);
+	while (1)
+	{
+		std::cout << "enter the first name : ";
+		std::getline(std::cin, input);
+		if (std::cin.eof() || std::cin.fail())
+		{
+			std::cout << std::endl << "Input cancelled." << std::endl;
+			return;
+		}
+		if (input.empty())
+			std::cout << "Error: First name cannot be empty!" << std::endl;
+		else
+			break;
+	}
 	jdid.setFirstName(input);
 
-	std::cout << "enter the last name : ";
-	std::getline(std::cin, input);
+	while (1)
+	{
+		std::cout << "enter the last name : ";
+		std::getline(std::cin, input);
+		if (std::cin.eof() || std::cin.fail())
+		{
+			std::cout << std::endl << "Input cancelled." << std::endl;
+			return;
+		}
+		if (input.empty())
+			std::cout << "Error: Last name cannot be empty!" << std::endl;
+		else
+			break;
+	}
 	jdid.setLastName(input);
 
-	std::cout << "enter the NickName : ";
-	std::getline(std::cin, input);
+	while (1)
+	{
+		std::cout << "enter the NickName : ";
+		std::getline(std::cin, input);
+		if (std::cin.eof() || std::cin.fail())
+		{
+			std::cout << std::endl << "Input cancelled." << std::endl;
+			return;
+		}
+		if (input.empty())
+			std::cout << "Error: Nickname cannot be empty!" << std::endl;
+		else
+			break;
+	}
 	jdid.setNickName(input);
 
-	std::cout << "enter the Phone Number : ";
-	std::getline(std::cin, input);
+	while (1)
+	{
+		std::cout << "enter the Phone Number : ";
+		std::getline(std::cin, input);
+		if (std::cin.eof() || std::cin.fail())
+		{
+			std::cout << std::endl << "Input cancelled." << std::endl;
+			return;
+		}
+		if (input.empty())
+			std::cout << "Error: Phone number cannot be empty!" << std::endl;
+		else
+			break;
+	}
 	jdid.setPhoneNumber(input);
 
-	std::cout << "enter the Darkest Secret : ";
-	std::getline(std::cin, input);
+	while (1)
+	{
+		std::cout << "enter the Darkest Secret : ";
+		std::getline(std::cin, input);
+		if (std::cin.eof() || std::cin.fail())
+		{
+			std::cout << std::endl << "Input cancelled." << std::endl;
+			return;
+		}
+		if (input.empty())
+			std::cout << "Error: Darkest secret cannot be empty!" << std::endl;
+		else
+			break;
+	}
 	jdid.setDarkestSecret(input);
 
 	mi7fada[index] = jdid;
 	index = (index + 1) % 8;
 	if (total_contact < 8)
-	{
 		total_contact++;
-	}
 	std::cout << "Contact added successfully" << std::endl;
 }
 
@@ -88,8 +146,7 @@ void PhoneBook::display_contact(int index)
 
 void PhoneBook::search_from_mi7fada()
 {
-	std::string index;
-	int i;
+	std::string index_str;
 	if (total_contact == 0)
 	{
 		std::cout << "no contact found" << std::endl;
@@ -97,10 +154,17 @@ void PhoneBook::search_from_mi7fada()
 	}
 	display_all_contacts();
 	std::cout << "enter a specific index from 0 to 7 :" << std::endl;
-	std::getline(std::cin, index);
-	i = atoi(index.c_str());//?
-	if (i >= 0 && i < total_contact)
-		display_contact(i);
+	if(!(std::getline(std::cin, index_str)))
+		return ;
+	int index_int;
+	std::stringstream ss(index_str);
+	if (!(ss >> index_int) || !ss.eof())
+	{
+		std::cout << std::endl << "Input cancelled." << std::endl;
+		return ;
+	}
+	if (index_int >= 0 && index_int < total_contact)
+		display_contact(index_int);
 	else
 		std::cout << "invalid index" << std::endl;
 }

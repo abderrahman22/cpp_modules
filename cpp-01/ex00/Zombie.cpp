@@ -5,20 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abchaman <abchaman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/26 17:25:39 by abchaman          #+#    #+#             */
-/*   Updated: 2025/11/26 23:27:54 by abchaman         ###   ########.fr       */
+/*   Created: 2025/12/28 18:24:59 by abchaman          #+#    #+#             */
+/*   Updated: 2026/01/06 00:33:04 by abchaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void Zombie::announce(void)
+void Zombie::announce()
 {
-	std::cout << name + ": " << "BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << Zombie::name + " " << "BraiiiiiiinnnzzzZ..." << std::endl;
 }
-Zombie::Zombie(std::string nm)
+
+Zombie::Zombie(std::string name)
 {
-	name = nm;
+	this->name = name;
 }
 Zombie::~Zombie()
 {

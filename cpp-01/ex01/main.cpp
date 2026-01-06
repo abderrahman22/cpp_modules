@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abchaman <abchaman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/26 23:27:22 by abchaman          #+#    #+#             */
-/*   Updated: 2025/11/29 22:07:47 by abchaman         ###   ########.fr       */
+/*   Created: 2025/12/29 15:51:59 by abchaman          #+#    #+#             */
+/*   Updated: 2025/12/29 16:19:46 by abchaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 int main()
 {
 	int i = 0;
-	int N = 5;
-	Zombie* newZombies = zombieHorde(N, "Zombie Hord");
-	while (i < N)
+	Zombie* horde = zombieHorde(5, "wa zombiiiiii");
+	while (i < 5)
 	{
-		newZombies[i].announce();
+		horde[i].announce();
 		i++;
 	}
-	delete[] newZombies;
+	delete[] horde;
 }

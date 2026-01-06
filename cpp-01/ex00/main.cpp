@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abchaman <abchaman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/26 17:24:39 by abchaman          #+#    #+#             */
-/*   Updated: 2025/12/03 17:08:00 by abchaman         ###   ########.fr       */
+/*   Created: 2025/12/28 18:22:31 by abchaman          #+#    #+#             */
+/*   Updated: 2026/01/06 00:57:38 by abchaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 int main()
 {
-	std::cout << "heap allocation :" << std::endl;
-	Zombie* newzombie = newZombie("bo3o");
-	newzombie->announce();
-	delete newzombie;
-
-
-	std::cout << "stack allcotaion" << std::endl;
-	randomChump("3sila");
+	//heap alloc
+	Zombie* a = newZombie("aaa");
+	a->announce();
+	delete a;
+	//stack alloc
+	randomChump("yo");
 }

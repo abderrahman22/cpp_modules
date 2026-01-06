@@ -5,20 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abchaman <abchaman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 18:09:22 by abchaman          #+#    #+#             */
-/*   Updated: 2025/12/03 17:15:14 by abchaman         ###   ########.fr       */
+/*   Created: 2025/12/31 15:05:21 by abchaman          #+#    #+#             */
+/*   Updated: 2025/12/31 17:10:19 by abchaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
+HumanA::HumanA(std::string name, Weapon& sla7) : name(name), sla7(sla7){}
+
 void HumanA::attack()
 {
-	//later
-	std::cout << "NAME";
-}
-
-void HumanA::setWeapon()
-{
-	
+	std::cout << name + " "<< "attack with their " << sla7.getType() << std::endl;
 }

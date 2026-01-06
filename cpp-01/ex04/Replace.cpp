@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Replace.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abchaman <abchaman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/31 15:34:12 by abchaman          #+#    #+#             */
-/*   Updated: 2025/12/31 17:11:13 by abchaman         ###   ########.fr       */
+/*   Created: 2026/01/02 15:01:51 by abchaman          #+#    #+#             */
+/*   Updated: 2026/01/06 05:26:55 by abchaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "Replace.hpp"
 
-int main()
+std::string replaceall(std::string filename, std::string s1, std::string s2)
 {
+	size_t found;
+
+	while ((found = filename.find(s1)) != std::string::npos)
 	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
+		filename.erase(found, s1.length());
+		filename.insert(found, s2);
 	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-	}
-	return 0;
+	return filename;
 }

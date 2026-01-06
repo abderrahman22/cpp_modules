@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abchaman <abchaman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 17:51:35 by abchaman          #+#    #+#             */
-/*   Updated: 2025/12/01 17:54:28 by abchaman         ###   ########.fr       */
+/*   Created: 2025/12/30 14:15:10 by abchaman          #+#    #+#             */
+/*   Updated: 2026/01/06 05:03:10 by abchaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 int main()
 {
-	std::string test = "HI THIS IS BRAIN";
-	std::string *ptr = &test;
-	std::string &ref = test;
+	std::string string = "HI THIS IS BRAIN";
+	std::string *stringPTR = &string;
+	std::string &stringREF = string;
 
-	std::cout << &test << std::endl;
-	std::cout << ptr << std::endl;
-	std::cout << &ref << std::endl;
+	std::cout << &string << std::endl;
+	std::cout << stringPTR << std::endl;
+	std::cout << &stringREF << std::endl;
 
-	std::cout << test << std::endl;
-	std::cout << *ptr << std::endl;
-	std::cout << ref << std::endl;
+	std::cout << string << std::endl;
+	std::cout << *stringPTR << std::endl;
+	std::cout << stringREF << std::endl;
 }
+
