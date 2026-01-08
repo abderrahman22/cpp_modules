@@ -1,31 +1,51 @@
 #include <iostream>
 
-class test
+using namespace std;
+
+class number
 {
-	private:
-		int a;
 	public:
-		test()
+		int n;
+		number(int z)
 		{
-			a = 0;
+			n = z;
 		}
-		void setValue(int v)
+		number operator+(number &j)
 		{
-			a = v;
+			std::cout << this->n << std::endl;
+			std::cout << j.n << std::endl;
+			return (this->n + j.n);
 		}
-		void Display()
+		bool operator==(number &j)
 		{
-			std::cout << a << std::endl;
+			cout << "overload == called" << endl;
+			cout << "n " << this->n << endl;
+			cout << "j.n " << j.n <<  endl;
+			if (j.n == n)
+			{
+				return true;
+			}
+			else
+				return false;
 		}
 };
 
 int main()
 {
-	test a;
-	test b;
+	number a(10);
+	number b(7);
 
-	a.setValue(6);
-	b.setValue(9);
-	a.Display();
-	b.Display();
+	number c = b + a;
+	cout << c.n << endl;
+	number d(77);
+	if (c == d)
+	{
+		cout << "true" << endl;
+		return 1;
+	}
+	else
+	{
+		cout << "false" << endl;
+		return -1;
+	}
 }

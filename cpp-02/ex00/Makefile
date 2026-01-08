@@ -1,10 +1,10 @@
-NAME = "My First Class in Orthodox Canonical Form"
+NAME = ex00
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-SRCS = main.cpp fixed.cpp \
+SRCS = main.cpp Fixed.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
