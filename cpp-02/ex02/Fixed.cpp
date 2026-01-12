@@ -6,16 +6,13 @@
 /*   By: abchaman <abchaman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 21:01:41 by abchaman          #+#    #+#             */
-/*   Updated: 2026/01/08 18:37:14 by abchaman         ###   ########.fr       */
+/*   Updated: 2026/01/09 01:49:02 by abchaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() :value(0)
-{
-	std::cout << "Default Constructor called" << std::endl;
-}
+Fixed::Fixed() :value(0){}
 
 Fixed::Fixed(const int v)
 {
@@ -30,19 +27,13 @@ Fixed::Fixed(const float v)
 
 Fixed& Fixed::operator=(const Fixed& other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	value = other.value;
 	return *this;
 }
 
-Fixed::Fixed(const Fixed& other): value(other.value)
-{
-	std::cout << "Copy Constructor called" << std::endl;
-}
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
-}
+Fixed::Fixed(const Fixed& other): value(other.value){}
+
+Fixed::~Fixed(){}
 
 float Fixed::toFloat( void ) const
 {
@@ -64,7 +55,6 @@ std::ostream& operator<<(std::ostream& os, const Fixed &other)
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return value;
 }
 
