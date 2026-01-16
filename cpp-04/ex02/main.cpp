@@ -39,7 +39,7 @@ int main()
 	Dog* copy_of_jack = new Dog(*jack);
 
 	std::cout << "Address of jack's brain: " << jack->getBrain() << std::endl;
-	std::cout << "Address of copy's brain:  " << copy_of_jack->getBrain() << std::endl;
+	std::cout << "Address of copy_of_jack's brain:  " << copy_of_jack->getBrain() << std::endl;
 
 	if (jack->getBrain() != copy_of_jack->getBrain())
 	{
