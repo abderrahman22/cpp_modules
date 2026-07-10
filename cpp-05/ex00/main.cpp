@@ -16,14 +16,12 @@ int main()
 {
 	try
 	{
-		Bureaucrat alice("Alice", 2);
-		std::cout << alice << std::endl;
-
-		alice.incrementGrade();
-		std::cout << alice << std::endl;
-
-		alice.incrementGrade();
-	} catch (std::exception& e)
+		Bureaucrat alice("alice", 2);
+		alice.incrementgrade();
+		alice.incrementgrade();
+		std::cout << alice.getGrade() << std::endl;
+	}
+	catch (std::exception& e)
 	{
 		std::cout << "Exception: " << e.what() << std::endl;
 	}

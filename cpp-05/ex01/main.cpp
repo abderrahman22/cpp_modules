@@ -11,20 +11,22 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
 	try
 	{
-		Bureaucrat alice("Alice", 2);
-		std::cout << alice << std::endl;
-
-		alice.incrementGrade();
-		std::cout << alice << std::endl;
-
-		alice.incrementGrade();
-	} catch (std::exception& e)
+		Bureaucrat alice("Alice", 42);
+		Form simple("Simple", 50, 50);
+		std::cout << alice.getName() << " (grade " << alice.getGrade() << ")" << std::endl;
+		std::cout << simple << std::endl;
+		alice.signForm(simple);
+		std::cout << simple << std::endl;
+	}
+	catch (std::exception& e)
 	{
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
+	return 0;
 }
