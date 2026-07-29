@@ -11,74 +11,46 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
-
-#include "Bureaucrat.hpp"
-#include <iostream>
+#include "Intern.hpp"
+#include "AForm.hpp"
 
 int main()
 {
-	std::cout << " TEST 1: Instantiating with Grade 0 (Too High) " << std::endl;
-	try
+	Intern someRandomIntern;
+	Bureaucrat boss("abdocn", 120);
+	AForm* rrf = NULL;
+	AForm* scf = NULL;
+	AForm* ppf = NULL;
+	AForm* unknown = NULL;
+
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	scf = someRandomIntern.makeForm("shrubbery creation", "Home");
+	ppf = someRandomIntern.makeForm("presidential pardon", "abdo");
+
+	unknown = someRandomIntern.makeForm("pizza delivery request", "Office");
+
+	if (rrf)
 	{
-		Bureaucrat abdo("Abdo", 0);
-		// If the line above works, this next line will print (it shouldn't!)
-		std::cout << abdo << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << "Exception caught: " << e.what() << std::endl;
+		boss.signForm(*rrf);
+		boss.executeForm(*rrf); // Should attempt to robotomize "Bender"
 	}
 
-	std::cout << "\n TEST 2: Instantiating with Grade 151 (Too Low) " << std::endl;
-	try
+	if (scf)
 	{
-		Bureaucrat intern("Intern", 151);
-		std::cout << intern << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << "Exception caught: " << e.what() << std::endl;
+		boss.signForm(*scf);
+		boss.executeForm(*scf); // Should create a file called "Home_shrubbery"
 	}
 
-	std::cout << "\n TEST 3: Incrementing past Grade 1 " << std::endl;
-	try
+	if (ppf)
 	{
-		Bureaucrat boss("Boss", 2);
-		std::cout << boss << std::endl;
-
-		boss.incrementgrade(); // Grade goes to 1 (Valid)
-		std::cout << "After first increment: " << boss << std::endl;
-
-		boss.incrementgrade(); // Grade tries to go to 0 (Should throw!)
-		std::cout << "You should not see this print!" << std::endl;
+		boss.signForm(*ppf);
+		boss.executeForm(*ppf); // Should announce that "abdo" is pardoned
 	}
-	catch (std::exception& e)
-	{
-		std::cerr << "Exception caught: " << e.what() << std::endl;
-	}
-
-	std::cout << "\n TEST 4: Decrementing past Grade 150 " << std::endl;
-	try
-	{
-		Bureaucrat slacker("Slacker", 149);
-		std::cout << slacker << std::endl;
-
-		slacker.decrementgrade(); // Grade goes to 150 (Valid)
-		std::cout << "After first decrement: " << slacker << std::endl;
-
-		slacker.decrementgrade(); // Grade tries to go to 151 (Should throw!)
-		std::cout << "You should not see this print!" << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cerr << "Exception caught: " << e.what() << std::endl;
-	}
+	delete rrf;
+	delete scf;
+	delete ppf;
+	delete unknown;
 
 	return 0;
 }
