@@ -22,11 +22,11 @@ int main()
 	AForm* unknown = NULL;
 
 	std::cout << " TEST 1: Intern creating forms " << std::endl;
-	
+
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 	scf = someRandomIntern.makeForm("shrubbery creation", "Home");
 	ppf = someRandomIntern.makeForm("presidential pardon", "abdo");
-	
+
 	unknown = someRandomIntern.makeForm("pizza delivery request", "Office");
 
 	std::cout << "\n TEST 2: Bureaucrats interacting with generated forms " << std::endl;
@@ -64,7 +64,7 @@ int main()
 	}
 
 	std::cout << "\n TEST 3: Cleaning up memory " << std::endl;
-	
+
 	delete rrf;
 	delete scf;
 	delete ppf;

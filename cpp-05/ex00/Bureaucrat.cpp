@@ -6,13 +6,12 @@
 /*   By: abchaman <abchaman@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 17:48:14 by abchaman          #+#    #+#             */
-/*   Updated: 2026/07/10 03:52:07 by abchaman         ###   ########.fr       */
+/*   Updated: 2026/08/09 01:17:52 by abchaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-//! Canonical form
 Bureaucrat::Bureaucrat() : _name(""), _grade(0)
 {}
 
@@ -35,7 +34,6 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 
 Bureaucrat::~Bureaucrat(){}
 
-//? Logic here
 
 void Bureaucrat::incrementgrade()
 {

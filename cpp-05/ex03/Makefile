@@ -20,6 +20,7 @@ clean:
 	$(RM) $(OBJS)
 fclean: clean
 	$(RM) $(NAME)
+	rm -f *_shrubbery
 
 re: fclean all
 

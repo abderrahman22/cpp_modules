@@ -18,8 +18,8 @@ int main()
 		ShrubberyCreationForm form1("garden");
 
 		std::cout << form1 << std::endl;
-		
-		abdo.executeForm(form1); 
+
+		abdo.executeForm(form1);
 		intern.signForm(form1);
 		intern.executeForm(form1);
 		abdo.executeForm(form1);
@@ -40,7 +40,7 @@ int main()
 
 		boss.signForm(form2);
 		boss.executeForm(form2);
-		
+
 		ceo.executeForm(form2);
 		ceo.executeForm(form2);
 		ceo.executeForm(form2);
