@@ -19,11 +19,11 @@ class Form
 		Form& operator=(const Form& other);
 		~Form();
 
-		class GradeTooHighException : std::exception
+		class GradeTooHighException : public std::exception
 		{
 			const char* what() const throw();
 		};
-		class GradeTooLowException : std::exception
+		class GradeTooLowException : public std::exception
 		{
 			const char* what() const throw();
 		};

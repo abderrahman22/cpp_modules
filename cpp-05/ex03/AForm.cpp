@@ -92,11 +92,11 @@ std::ostream& operator<<(std::ostream& os, const AForm& Aform)
 	os << "AForm: " << Aform.get_name();
 	if (Aform.get_issigned())
 	{
-		os << "Signed";
+		os << " Signed";
 	}
 	else
 	{
-		os << "Not signed";
+		os << " Not signed";
 	}
 	os << ", Sign Grade required: " << Aform.get_gradetosign()
 		<< ", Execute Grade required: " << Aform.get_gradetoexecute() << ".";

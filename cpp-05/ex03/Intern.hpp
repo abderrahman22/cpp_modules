@@ -19,11 +19,6 @@ class Intern
 		~Intern();
 
 		AForm* makeForm(const std::string name, const std::string target);
-		class NotintheForm : std::exception
-		{
-			const char* what() const throw();
-		};
-
 };
 
 #endif

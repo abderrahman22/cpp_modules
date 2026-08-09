@@ -14,7 +14,7 @@
 #include "AForm.hpp"
 
 //! Canonical form
-Bureaucrat::Bureaucrat() : _name(""), _grade(0)
+Bureaucrat::Bureaucrat() : _name(""), _grade(150)
 {}
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name)

@@ -81,9 +81,8 @@ void Bureaucrat::signForm(Form& form)
 		form.beSigned(*this);
 		std::cout << _name << " signed " << form.get_name() << std::endl;
 
-	} catch (const std::exception& e)
+	}catch (const std::exception& e)
 	{
-		// If beSigned threw an exception, we catch it and print the subject's exact error format
 		std::cout << _name << " couldn't sign " << form.get_name()
 				<< " because " << e.what() << std::endl;
 	}

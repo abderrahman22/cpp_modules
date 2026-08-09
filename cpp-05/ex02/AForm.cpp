@@ -16,7 +16,7 @@
 AForm::AForm() : _name("Default"), _issigned(false), _gradeToSign(150), _gradeToExecute(150) {}
 
 AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExecute)
-	: _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
+	: _name(name),_issigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
 	if (gradeToSign < 1 || gradeToExecute < 1)
 	{
@@ -92,11 +92,11 @@ std::ostream& operator<<(std::ostream& os, const AForm& Aform)
 	os << "AForm: " << Aform.get_name();
 	if (Aform.get_issigned())
 	{
-		os << "Signed";
+		os << " Signed";
 	}
 	else
 	{
-		os << "Not signed";
+		os << " Not signed";
 	}
 	os << ", Sign Grade required: " << Aform.get_gradetosign()
 		<< ", Execute Grade required: " << Aform.get_gradetoexecute() << ".";

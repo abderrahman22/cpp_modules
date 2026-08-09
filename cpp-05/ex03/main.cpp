@@ -1,52 +1,70 @@
-/* ************************************************************************** */
-/*		                                                                    */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: abchaman <abchaman@student.1337.ma>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/17 14:29:22 by abchaman          #+#    #+#             */
-/*   Updated: 2026/04/23 12:54:10 by abchaman         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Bureaucrat.hpp"
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 #include "Intern.hpp"
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
+#include "Intern.hpp"
+#include "AForm.hpp"
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 int main()
 {
+	std::srand(std::time(NULL));
+
 	Intern someRandomIntern;
-	Bureaucrat boss("abdocn", 120);
 	AForm* rrf = NULL;
 	AForm* scf = NULL;
 	AForm* ppf = NULL;
 	AForm* unknown = NULL;
 
+	std::cout << " TEST 1: Intern creating forms " << std::endl;
+	
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 	scf = someRandomIntern.makeForm("shrubbery creation", "Home");
 	ppf = someRandomIntern.makeForm("presidential pardon", "abdo");
-
+	
 	unknown = someRandomIntern.makeForm("pizza delivery request", "Office");
 
-	if (rrf)
+	std::cout << "\n TEST 2: Bureaucrats interacting with generated forms " << std::endl;
+	try
 	{
-		boss.signForm(*rrf);
-		boss.executeForm(*rrf); // Should attempt to robotomize "Bender"
+		Bureaucrat boss("boss", 1);
+		Bureaucrat noob("noob", 140);
+
+		if (scf)
+		{
+			std::cout << "\n--- Shrubbery ---" << std::endl;
+			noob.signForm(*scf);
+			noob.executeForm(*scf);
+			boss.executeForm(*scf);
+		}
+
+		if (rrf)
+		{
+			std::cout << "\n--- Robotomy ---" << std::endl;
+			boss.signForm(*rrf);
+			boss.executeForm(*rrf);
+			boss.executeForm(*rrf);
+		}
+
+		if (ppf)
+		{
+			std::cout << "\n--- Presidential ---" << std::endl;
+			boss.signForm(*ppf);
+			boss.executeForm(*ppf);
+		}
+	}
+	catch (std::exception& e)
+	{
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
 
-	if (scf)
-	{
-		boss.signForm(*scf);
-		boss.executeForm(*scf); // Should create a file called "Home_shrubbery"
-	}
-
-	if (ppf)
-	{
-		boss.signForm(*ppf);
-		boss.executeForm(*ppf); // Should announce that "abdo" is pardoned
-	}
+	std::cout << "\n TEST 3: Cleaning up memory " << std::endl;
+	
 	delete rrf;
 	delete scf;
 	delete ppf;
