@@ -101,6 +101,21 @@
 		"typeinfo": "cpp",
 		"valarray": "cpp",
 		"variant": "cpp",
-		"*.inc": "cpp"
+		"*.inc": "cpp",
+		"hash_map": "cpp",
+		"hash_set": "cpp",
+		"decimal": "cpp",
+		"buffer": "cpp",
+		"contract": "cpp",
+		"executor": "cpp",
+		"internet": "cpp",
+		"io_context": "cpp",
+		"propagate_const": "cpp",
+		"scope": "cpp",
+		"socket": "cpp",
+		"synchronized_value": "cpp",
+		"timer": "cpp",
+		"bool_set": "cpp",
+		"dynamic_bitset": "cpp"
 	}
 }

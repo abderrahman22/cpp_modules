@@ -7,7 +7,7 @@ void printElement(const T &element) {
 
 int main()
 {
-	int intArray[] = {1, 2, 3, 4, 5};
+	int intArray[] = {0, 1, 2, 3, 4, 42, 42, 42, 42, 42};
 	size_t intLen = sizeof(intArray) / sizeof(intArray[0]);
 
 	::iter(intArray, intLen, printElement<int>);
