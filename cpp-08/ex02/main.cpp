@@ -27,33 +27,29 @@ int main()
 	std::cout << "\nmy list for testing" << std::endl;
 
 
-    std::list<int> mlist;
-    
-    mlist.push_back(5);
-    mlist.push_back(17);
-    
-    std::cout << mlist.back() << std::endl;
-    
-    mlist.pop_back();
-    
-    std::cout << "size : " << mlist.size() << std::endl;
-    
-    mlist.push_back(3);
-    mlist.push_back(5);
-    mlist.push_back(737);
-    //[...] Khass tzid nfs dakchi li zedti lfou9
-    mlist.push_back(0);
-    
-    std::list<int>::iterator it_list = mlist.begin();
-    std::list<int>::iterator ite_list = mlist.end();
-    
-    ++it_list;
-    --it_list;
-    
-    while (it_list != ite_list)
-    {
-        std::cout << *it_list << std::endl;
-        ++it_list;
-    }
+	std::list<int> mlist;
+
+	mlist.push_back(5);
+	mlist.push_back(17);
+
+	std::cout << mlist.back() << std::endl;
+
+	mlist.pop_back();
+
+	std::cout << "size : " << mlist.size() << std::endl;
+
+	mlist.push_back(3);
+	mlist.push_back(5);
+	mlist.push_back(737);
+	mlist.push_back(0);
+
+	std::list<int>::iterator it_list = mlist.begin();
+	std::list<int>::iterator ite_list = mlist.end();
+
+	while (it_list != ite_list)
+	{
+		std::cout << *it_list << std::endl;
+		++it_list;
+	}
 	return 0;
 }
