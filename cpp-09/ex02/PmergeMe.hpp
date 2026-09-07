@@ -17,6 +17,9 @@ class PmergeMe
 		std::vector<int> _vec;
 		std::deque<int>  _deq;
 
+		void mergeSortPairsVector(std::vector<std::pair<int, int> >& pairs, int left, int right);
+    	void mergeSortPairsDeque(std::deque<std::pair<int, int> >& pairs, int left, int right);
+
 	public:
 		PmergeMe();
 		PmergeMe(const PmergeMe& other);

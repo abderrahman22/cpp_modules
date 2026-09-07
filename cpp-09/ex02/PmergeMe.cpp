@@ -42,15 +42,67 @@ bool PmergeMe::parseInput(int ac, char** av)
 	return true;
 }
 
-void PmergeMe::printSequence(const std::string& message) const
-{
-	std::cout << message;
-	for (size_t i = 0; i < _vec.size(); ++i)
+void PmergeMe::printSequence(const std::string& message) const {
+    std::cout << message;
+    for (size_t i = 0; i < _vec.size(); ++i) 
 	{
-			std::cout << _vec[i] << " ";
-	}
+        std::cout << _vec[i] << " ";
+    }
+    std::cout << std::endl;
+}
 
-	std::cout << std::endl;
+void PmergeMe::mergeSortPairsVector(std::vector<std::pair<int, int> >& pairs, int left, int right) 
+{
+    if (left >= right) return;
+    
+    int mid = left + (right - left) / 2;
+    mergeSortPairsVector(pairs, left, mid);
+    mergeSortPairsVector(pairs, mid + 1, right);
+    
+    std::vector<std::pair<int, int> > temp;
+    int i = left, j = mid + 1;
+    
+    while (i <= mid && j <= right) 
+	{
+        if (pairs[i].first <= pairs[j].first) 
+			temp.push_back(pairs[i++]);
+        else 
+			temp.push_back(pairs[j++]);
+    }
+    while (i <= mid) 
+		temp.push_back(pairs[i++]);
+    while (j <= right) 
+		temp.push_back(pairs[j++]);
+    for (int k = 0; k < (int)temp.size(); k++)
+	{
+        pairs[left + k] = temp[k];
+    }
+}
+
+void PmergeMe::mergeSortPairsDeque(std::deque<std::pair<int, int> >& pairs, int left, int right) {
+    if (left >= right) return;
+    
+    int mid = left + (right - left) / 2;
+    mergeSortPairsDeque(pairs, left, mid);
+    mergeSortPairsDeque(pairs, mid + 1, right);
+    
+    std::deque<std::pair<int, int> > temp;
+    int i = left, j = mid + 1;
+    
+    while (i <= mid && j <= right)
+	{
+        if (pairs[i].first <= pairs[j].first)
+			temp.push_back(pairs[i++]);
+        else
+			temp.push_back(pairs[j++]);
+    }
+    while (i <= mid)
+		temp.push_back(pairs[i++]);
+    while (j <= right)
+		temp.push_back(pairs[j++]);
+    
+    for (int k = 0; k < (int)temp.size(); k++)
+        pairs[left + k] = temp[k];
 }
 
 void PmergeMe::sortVector()
@@ -75,7 +127,9 @@ void PmergeMe::sortVector()
 	}
 	std::cout << std::endl;
 	//! tani part hiya sorting the pairs
-	std::sort(pairs.begin(), pairs.end());
+	// std::sort(pairs.begin(), pairs.end());
+	if (!pairs.empty())
+        mergeSortPairsVector(pairs, 0, pairs.size() - 1);
 	// ! MAIN CHAIN & PENDING
 	std::vector<int> main_chain;
 	std::vector<int> pend;
@@ -141,7 +195,8 @@ void PmergeMe::sortDeque()
 			pairs.push_back(std::make_pair(_deq[i+1], _deq[i]));
 	}
 
-	std::sort(pairs.begin(), pairs.end());
+	if (!pairs.empty())
+        mergeSortPairsDeque(pairs, 0, pairs.size() - 1);
 
 	std::deque<int> main_chain, pend;
 	for (size_t i = 0; i < pairs.size(); i++)
