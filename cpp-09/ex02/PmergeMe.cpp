@@ -44,18 +44,137 @@ bool PmergeMe::parseInput(int ac, char** av)
 
 void PmergeMe::printSequence(const std::string& message) const
 {
-	std::cout << message << " ";
+	std::cout << message;
 	for (size_t i = 0; i < _vec.size(); ++i)
 	{
-		std::cout << _vec[i] << " ";
+			std::cout << _vec[i] << " ";
 	}
+
 	std::cout << std::endl;
 }
 
 void PmergeMe::sortVector()
 {
+	//! awl part hiya pairing
+	if (_vec.size() < 2) return;
+	std::vector<std::pair<int, int> > pairs;
+	int straggler = -1;
+	bool hasStraggler = false;
+	if (_vec.size() % 2 != 0)
+	{
+		straggler = _vec.back();
+		hasStraggler = true;
+		_vec.pop_back();
+	}
+	for (size_t i = 0; i < _vec.size(); i += 2)
+	{
+		if (_vec[i] > _vec[i+1])
+			pairs.push_back(std::make_pair(_vec[i], _vec[i+1]));
+		else
+			pairs.push_back(std::make_pair(_vec[i+1], _vec[i]));
+	}
+	std::cout << std::endl;
+	//! tani part hiya sorting the pairs
+	std::sort(pairs.begin(), pairs.end());
+	// ! MAIN CHAIN & PENDING
+	std::vector<int> main_chain;
+	std::vector<int> pend;
+
+	for (size_t i = 0; i < pairs.size(); i++)
+	{
+		main_chain.push_back(pairs[i].first);
+		pend.push_back(pairs[i].second);
+	}
+	//! INSERTION B JACOBSTHAL
+	if (!pend.empty())
+	{
+		main_chain.insert(main_chain.begin(), pend[0]);
+	}
+	int jacob[] = {1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731, 5461, 10923};
+	size_t jacob_idx = 1;
+	size_t last_inserted = 1;
+
+	while (last_inserted < pend.size())
+	{
+		size_t current_jacob = jacob[jacob_idx];
+		if (current_jacob > pend.size())
+		{
+			current_jacob = pend.size();
+		}
+		for (size_t i = current_jacob; i > last_inserted; --i)
+		{
+			int to_insert = pend[i - 1];
+			std::vector<int>::iterator pos = std::lower_bound(main_chain.begin(), main_chain.end(), to_insert);
+			main_chain.insert(pos, to_insert);
+		}
+		last_inserted = current_jacob;
+		jacob_idx++;
+	}
+	if (hasStraggler)
+	{
+		std::vector<int>::iterator pos = std::lower_bound(main_chain.begin(), main_chain.end(), straggler);
+		main_chain.insert(pos, straggler);
+	}
+		_vec = main_chain;
 }
 
 void PmergeMe::sortDeque()
 {
+	if (_deq.size() < 2) return;
+
+	std::deque<std::pair<int, int> > pairs;
+	int straggler = -1;
+	bool hasStraggler = false;
+
+	if (_deq.size() % 2 != 0)
+	{
+		straggler = _deq.back();
+		hasStraggler = true;
+		_deq.pop_back();
+	}
+
+	for (size_t i = 0; i < _deq.size(); i += 2)
+	{
+		if (_deq[i] > _deq[i+1])
+			pairs.push_back(std::make_pair(_deq[i], _deq[i+1]));
+		else
+			pairs.push_back(std::make_pair(_deq[i+1], _deq[i]));
+	}
+
+	std::sort(pairs.begin(), pairs.end());
+
+	std::deque<int> main_chain, pend;
+	for (size_t i = 0; i < pairs.size(); i++)
+	{
+		main_chain.push_back(pairs[i].first);
+		pend.push_back(pairs[i].second);
+	}
+
+	if (!pend.empty())
+		main_chain.insert(main_chain.begin(), pend[0]);
+
+	int jacob[] = {1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365, 2731, 5461, 10923};
+	size_t jacob_idx = 1, last_inserted = 1;
+
+	while (last_inserted < pend.size())
+	{
+		size_t current_jacob = jacob[jacob_idx];
+		if (current_jacob > pend.size()) current_jacob = pend.size();
+
+		for (size_t i = current_jacob; i > last_inserted; --i)
+		{
+			int to_insert = pend[i - 1];
+			std::deque<int>::iterator pos = std::lower_bound(main_chain.begin(), main_chain.end(), to_insert);
+			main_chain.insert(pos, to_insert);
+		}
+		last_inserted = current_jacob;
+		jacob_idx++;
+	}
+
+	if (hasStraggler)
+	{
+		std::deque<int>::iterator pos = std::lower_bound(main_chain.begin(), main_chain.end(), straggler);
+		main_chain.insert(pos, straggler);
+	}
+	_deq = main_chain;
 }

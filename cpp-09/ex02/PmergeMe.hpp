@@ -5,8 +5,11 @@
 #include <vector>
 #include <deque>
 #include <string>
-#include <cstdlib> // atoi
-#include <sys/time.h> // Bach n7sbou l'weqt (gettimeofday)
+#include <algorithm>
+#include <utility>
+#include <cstdlib>
+#include <sys/time.h>
+#include <iomanip>
 
 class PmergeMe
 {
