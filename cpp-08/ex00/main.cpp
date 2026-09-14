@@ -12,8 +12,6 @@ int main()
 		std::cout << "vector container" << std::endl;
 		std::vector<int>::iterator it = easyfind(vec, 20);
 		std::cout << "Found: " << *it << std::endl;
-
-		// easyfind(vec, 99);
 	}
 	catch (const std::exception& e)
 	{

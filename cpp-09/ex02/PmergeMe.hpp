@@ -8,8 +8,6 @@
 #include <algorithm>
 #include <utility>
 #include <cstdlib>
-#include <sys/time.h>
-#include <iomanip>
 
 class PmergeMe
 {
@@ -18,7 +16,7 @@ class PmergeMe
 		std::deque<int>  _deq;
 
 		void mergeSortPairsVector(std::vector<std::pair<int, int> >& pairs, int left, int right);
-    	void mergeSortPairsDeque(std::deque<std::pair<int, int> >& pairs, int left, int right);
+		void mergeSortPairsDeque(std::deque<std::pair<int, int> >& pairs, int left, int right);
 
 	public:
 		PmergeMe();
@@ -27,9 +25,7 @@ class PmergeMe
 		~PmergeMe();
 
 		bool parseInput(int argc, char** argv);
-
 		void printSequence(const std::string& message) const;
-
 		void sortVector();
 		void sortDeque();
 };
